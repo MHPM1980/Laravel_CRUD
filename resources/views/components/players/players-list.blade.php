@@ -5,6 +5,7 @@
             @method('POST')
             <button type="submit" class="btn btn-danger">Delete ALL</button>
         </form>
+        <a type="button" class="btn btn-info" href="{{url('players/export')}}">Export Excel</a>
     </div>
 </div>
 
@@ -22,7 +23,7 @@
     <table class="table text-center">
         <thead class="thead-dark">
         <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Address</th>
             <th>Retired</th>

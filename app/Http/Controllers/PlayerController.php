@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Player;
 use Illuminate\Http\Request;
+use App\Exports\PlayersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PlayerController extends Controller
 {
@@ -158,5 +160,12 @@ class PlayerController extends Controller
         $players = Player::where('name', 'Like', '%' . $request->search . '%')->paginate(15);;
         return view('pages.players.index',['players'=>$players]);
     }
+
+
+    public function export()
+    {
+        return Excel::download(new PlayersExport, 'players.xlsx');
+    }
+
 
 }
