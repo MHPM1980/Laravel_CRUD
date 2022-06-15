@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PlayersImport;
 use App\Player;
 use Illuminate\Http\Request;
 use App\Exports\PlayersExport;
@@ -165,6 +166,13 @@ class PlayerController extends Controller
     public function export()
     {
         return Excel::download(new PlayersExport, 'players.xlsx');
+    }
+
+    public function import()
+    {
+        Excel::import(new PlayersImport, request()->file('playersFile'));
+
+        return redirect('/players')->with('success', 'All good!');
     }
 
 

@@ -1,11 +1,17 @@
 <h1 class="text-center py-2">Players List</h1>
 <div class="d-flex justify-content-center h-100">
+    <div>
         <form action="{{url('players')}}" method="POST">
             @csrf
             @method('POST')
             <button type="submit" class="btn btn-danger">Delete ALL</button>
         </form>
         <a type="button" class="btn btn-info" href="{{url('players/export')}}">Export Excel</a>
+        <form method="POST" action="{{url('players/import')}}" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="playersFile" />
+            <button type="submit" class="btn btn-primary">Import</button>
+        </form>
     </div>
 </div>
 

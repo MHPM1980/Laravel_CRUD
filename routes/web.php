@@ -27,6 +27,7 @@ Route::get('/players/create','PlayerController@create');
 //Route::get('/players/search','playerController@index' );
 Route::post('/players/','PlayerController@store');
 Route::get('players/export/', 'PlayerController@export');
+Route::post('/players/import','Playercontroller@import');
 Route::get('/players/{player}','PlayerController@show');
 Route::get('/players/{player}/edit','PlayerController@edit');
 Route::put('/players/{player}', 'PlayerController@update');
